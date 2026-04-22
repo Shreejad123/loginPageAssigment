@@ -3,9 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./login.module.css";
 import { IoEyeOutline } from "react-icons/io5";
 import { FiEyeOff } from "react-icons/fi";
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import loginImage from "../assets/images/bg.jpg";
 import { GiStripedSun } from "react-icons/gi";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,6 +37,7 @@ const Login = () => {
     if (validateForm()) {
       console.log("Login attempt:", { email, password });
     }
+    toast.success("login sucessful!", { autoClose: 1000 });
   };
   return (
     <>
@@ -53,7 +56,7 @@ const Login = () => {
                 <h2>
                   Get <br></br>Everything <br></br>You want
                 </h2>
-                <p>
+                <p className={styles.paragraphdetail}>
                   You Can get Everything you want if you work hard.<br></br>
                   trust the process and stick to plan
                 </p>
@@ -61,7 +64,7 @@ const Login = () => {
             </div>
           </div>
           <div className={styles.loginContainer}>
-            <div>
+            <div className={styles.cogie}>
               Cogie <GiStripedSun />
             </div>
             <h1 className={styles.header}>Welcome Back</h1>
@@ -125,8 +128,8 @@ const Login = () => {
                     type="button"
                     className={`btn btn-light ${styles.loginBtn}`}
                   >
-                    <FaGoogle />
-                    Signup with Google
+                    <FcGoogle />
+                    &nbsp; Signup with Google
                   </button>
                   <div className={styles.signup}>
                     Don't have an account? Sign up
@@ -137,6 +140,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

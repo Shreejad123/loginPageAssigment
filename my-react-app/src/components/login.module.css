@@ -1,0 +1,56 @@
+.loginContainer {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  padding: 20px;
+  margin-left: 5%;
+  gap: 10px;
+}
+.container {
+  gap: 0px;
+  width: 100%;
+  display: grid;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 700px;
+  max-height: 900px;
+  border-radius: 0.8rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  margin-top: 5%;
+}
+.input {
+  flex: 1;
+
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+.errorMessage {
+  color: red;
+}
+.loginCard {
+  padding: 2rem;
+}
+.loginBtn {
+  width: 100%;
+  margin-top: 5%;
+}
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+.eyeIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+
+  cursor: pointer;
+  font-size: 20px;
+}
+input[type="checkbox"] {
+  margin-right: 5px;
+}

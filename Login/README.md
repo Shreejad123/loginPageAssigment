@@ -2,4 +2,4 @@
 
 ## Screenshot
 
-![Project Screenshot](./screenshots/project.png)
+![Project Screenshot](./screenshots/screenshotLogin.jpg)

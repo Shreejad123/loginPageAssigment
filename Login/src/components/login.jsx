@@ -58,8 +58,8 @@ const Login = () => {
                   Get <br></br>Everything <br></br>You want
                 </h2>
                 <p className={styles.paragraphDetail}>
-                  You Can get Everything you want if you work hard.<br></br>
-                  trust the process and stick to plan
+                  You can get everything you want if you work hard.<br></br>
+                  trust the process and stick to the plan
                 </p>
               </div>
             </div>

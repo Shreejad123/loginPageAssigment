@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "./login.module.css";
+import styles from "../styles/login.module.css";
 import { IoEyeOutline } from "react-icons/io5";
 import { FiEyeOff } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
@@ -8,6 +8,7 @@ import loginImage from "../assets/images/bg.jpg";
 import { GiStripedSun } from "react-icons/gi";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,8 +37,8 @@ const Login = () => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Login attempt:", { email, password });
+      toast.success("login sucessful!", { autoClose: 1000 });
     }
-    toast.success("login sucessful!", { autoClose: 1000 });
   };
   return (
     <>
@@ -45,18 +46,16 @@ const Login = () => {
         <div className={styles.container}>
           <div className={styles.imageCard}>
             <img src={loginImage} alt="Background" className={styles.image} />
+
             <div className={styles.text}>
-              <p className={styles.topLefttext}>
-                <span>
-                  Wise Quote
-                  <hr />
-                </span>
+              <p className={styles.topLeftText}>
+                <span className={styles.WiseQuote}>A WISE QUOTE</span>
               </p>
-              <div className={styles.paragraphtext}>
+              <div className={styles.paragraphText}>
                 <h2>
                   Get <br></br>Everything <br></br>You want
                 </h2>
-                <p className={styles.paragraphdetail}>
+                <p className={styles.paragraphDetail}>
                   You Can get Everything you want if you work hard.<br></br>
                   trust the process and stick to plan
                 </p>
@@ -65,29 +64,33 @@ const Login = () => {
           </div>
           <div className={styles.loginContainer}>
             <div className={styles.cogie}>
-              Cogie <GiStripedSun />
+              <GiStripedSun /> Cogie
             </div>
-            <h1 className={styles.header}>Welcome Back</h1>
-            <p className={styles.paragraph}>
-              Enter your email and password to access your account
-            </p>
+            <div className={styles.heading}>
+              <h1 className={styles.header}>Welcome Back</h1>
+              <p className={styles.paragraph}>
+                Enter your email and password to access your account
+              </p>
+            </div>
             <form onSubmit={handleSubmit} className={styles.loginForm}>
               <div>
-                <label>Email</label>
+                <label htmlFor="exampleInputEmail1">Email</label>
                 <input
-                  className={styles.input}
-                  type="email"
+                  className={`form-control ${styles.input}`}
+                  type="text"
                   placeholder="Enter email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                {errors.email && <p className="errorMessage">{errors.email}</p>}
+                {errors.email && (
+                  <p className={styles.errorMessage}>{errors.email}</p>
+                )}
               </div>
               <div className={styles.passwordWrapper}>
-                <label>Password</label>
+                <label htmlFor="exampleInputPassword1">Password</label>
                 <input
                   type={showPassword ? "text" : "password"}
-                  className={styles.input}
+                  className={`form-control ${styles.input}`}
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -104,14 +107,12 @@ const Login = () => {
                   />
                 )}
                 {errors.password && (
-                  <p style={{ color: "red" }}>{errors.password}</p>
+                  <p className={styles.errorMessage}>{errors.password}</p>
                 )}
               </div>
               <div className={styles.checkBoxforgotpassword}>
-                <div className={styles.checkbox}>
-                  <input type="checkbox" />
-                  <label>Remember me</label>
-                </div>
+                <input type="checkbox" />
+                <label className="form-check-label">Remember me</label>
                 <div className={styles.forgotpassword}>
                   <a>Forgot password</a>
                 </div>
@@ -121,7 +122,7 @@ const Login = () => {
                   type="submit"
                   className={`btn btn-dark ${styles.loginBtn}`}
                 >
-                  Sign up
+                  Sign In
                 </button>
                 <div>
                   <button
@@ -129,10 +130,10 @@ const Login = () => {
                     className={`btn btn-light ${styles.loginBtn}`}
                   >
                     <FcGoogle />
-                    &nbsp; Signup with Google
+                    &nbsp; Sign in with Google
                   </button>
-                  <div className={styles.signup}>
-                    Don't have an account? Sign up
+                  <div className={styles.signUp}>
+                    Don't have an account? <a>Sign up</a>
                   </div>
                 </div>
               </div>

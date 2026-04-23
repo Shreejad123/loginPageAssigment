@@ -1,6 +1,6 @@
 # Login Page Project
 
-Responsive login page built using HTML, CSS and JavaScript.
+Responsive login page built using HTML, CSS and JavaScript, React and Bootstrap.
 
 ## Screenshots
 
